@@ -1,0 +1,55 @@
+public class Solution {
+    public int[] SortArray(int[] nums) {
+        
+       return(mergesort(nums,0,nums.Length-1));
+               
+        
+    }
+    
+    //mergesort with recurssion
+    private static int [] mergesort(int[] nums, int start, int end)
+    {
+        
+     
+       if(start<end)
+       {
+        
+        //split array into two and call mergesort for both halfs recursively
+        int mid = (start+end)/2;
+        int [] nums1 = mergesort(nums,start,mid);
+        int [] nums2 = mergesort(nums,mid+1,end);
+        
+        //merge sorted arrays into temp array
+        int length1 = nums1.Length, length2 = nums2.Length;
+        int arrayIndex = 0;
+        int [] nums3 = new int[length1+length2];
+        int i =0,j=0;
+        
+        while(i<length1 && j<length2)
+        {
+        if(nums1[i]<= nums2[j])   
+            nums3[arrayIndex++] = nums1[i++];
+        else nums3[arrayIndex++] = nums2[j++];
+        //arrayIndex++;
+            }
+        
+        while(i<length1)
+        {
+            nums3[arrayIndex++] = nums1[i++];
+        }
+        while(j<length2)
+        {
+            nums3[arrayIndex++] = nums2[j++];
+        }
+        
+        return nums3;
+        
+        }
+        
+        
+        return new int [] {nums[start]};
+  
+    }
+    
+    
+}
