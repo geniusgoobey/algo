@@ -1,0 +1,38 @@
+
+ public class Selectionsort
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 6,2, 3, 4, 1, 5 };
+            int minvalue; int minindex;
+            for (int i =0;i<arr.Length;i++)
+            {
+                minvalue = arr[i];
+                minindex = i;
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[j] < minvalue)
+                    {
+                        minvalue = arr[j];
+                        minindex = j;
+                    }
+                
+                }
+                
+                int swap = arr[i];
+                arr[i] = arr[minindex];
+                arr[minindex] = swap;
+
+
+
+
+
+            }
+
+
+            Console.WriteLine(arr);
+
+
+
+        }
+    }

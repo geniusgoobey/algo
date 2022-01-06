@@ -1,0 +1,66 @@
+
+    public static List<int> merge_sort(List<int> arr) {
+        // Write your code here.
+        
+        return mergesort(arr, 0, arr.Count -1);
+        
+        
+        
+        //return new List<int>();
+    }
+    
+    public static List<int> mergesort(List<int> nums,int start,int end)
+    {
+        if(start<end)
+        {
+            int mid = (start + end)/2;
+            
+            List<int> nums1 = mergesort(nums,start,mid);
+            List<int> nums2 = mergesort(nums,mid+1,end);
+            
+            //merge both arrays
+            int length1 = nums1.Count, length2 = nums2.Count;
+            int i =0,j=0;
+            //List<int> nums3 = new List<int> (length1+length2);
+            List<int> nums3 = new List<int> ();
+            
+            while( i< length1 && j < length2)
+            {
+                if(nums1[i]<=nums2[j])
+                    {
+                        nums3.Add(nums1[i]);
+                        i++;   
+                    }
+                else
+                    { 
+                        nums3.Add(nums2[j]);
+                        j++;
+                        
+                    }
+            }
+            
+            while(i<length1)
+            {
+                nums3.Add(nums1[i]);
+                i++;
+            }
+            
+            while(j<length2)
+            {
+                nums3.Add(nums2[j]);
+                j++;
+            }
+            
+            return nums3;
+            
+            
+            
+            
+            
+        }
+        
+        else return new List<int> {nums[start]};
+        
+        
+        
+    }
