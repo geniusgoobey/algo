@@ -1,0 +1,20 @@
+ public static void Bubblesort()
+        {
+            int[] arr = new int[] { 10,7,1,6,5,2,3,4,8,9 };
+
+            for(int i = 0;i < arr.Length;i++)
+            {
+                for(int j = arr.Length -1;j>i; j--)
+                {
+                    if(arr[i] > arr[j])
+                    {
+                        int swap = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = swap;
+
+                    }
+
+                }
+
+
+            }
